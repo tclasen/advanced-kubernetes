@@ -9,14 +9,17 @@ if __name__ == "__main__":
 
 app = FastAPI()
 
+
 class Person(BaseModel):
     name: str
     age: int
+
 
 db = [
     Person(name="Tory", age=32),
     Person(name="Alex", age=35),
 ]
+
 
 @app.get("/persons/{name}")
 async def read_person(name: str) -> Person:
